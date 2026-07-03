@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paulus - Pia Sociedade de São Paulo. Serviços combinados de escritório e apoio administrativo desde 1976. Atendimento de excelência em São Paulo.">
+    <meta name="keywords" content="Paulus, Pia Sociedade de São Paulo, serviços administrativos, escritório, apoio administrativo, São Paulo, Vila Mariana">
+    <meta name="author" content="Paulus">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Paulus - Pia Sociedade de São Paulo | Serviços Administrativos">
+    <meta property="og:description" content="Serviços combinados de escritório e apoio administrativo. Excelência desde 1976.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.paulus.com.br">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80">
+    <title>Paulus - Pia Sociedade de São Paulo | Serviços de Escritório e Apoio Administrativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6B1D2F;
+            --primary-dark: #4A0F1C;
+            --primary-light: #8B2E42;
+            --gold: #C9A84C;
+            --gold-light: #D4B96A;
+            --gold-dark: #A88A35;
+            --light: #F8F6F2;
+            --white: #FFFFFF;
+            --dark: #1A1A1A;
+            --gray: #6C757D;
+            --gray-light: #E9ECEF;
+            --soft-bg: #FDF8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+            z-index: 1030;
+        }
+        .navbar.scrolled {
+            padding: 6px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 1.9rem;
+            color: var(--primary) !important;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-brand .brand-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+        }
+        .navbar-brand span {
+            color: var(--gold);
+            font-weight: 400;
+            font-size: 0.9rem;
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+        .nav-link {
+            color: var(--dark) !important;
+            font-weight: 500;
+            margin: 0 6px;
+            padding: 8px 16px !important;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .nav-link:hover {
+            background: var(--light);
+            color: var(--primary) !important;
+        }
+        .btn-nav {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white) !important;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 24px !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(107, 29, 47, 0.3);
+        }
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107, 29, 47, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a20 40%, #6B1D2F 100%);
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+        .hero .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.2);
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            color: var(--gold-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            background: linear-gradient(135deg, #fff 0%, #e0d5c0 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        .btn-primary-hero {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.4);
+            text-transform: uppercase;
+        }
+        .btn-primary-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(201, 168, 76, 0.6);
+            background: linear-gradient(135deg, var(--gold-light), #e8d5a0);
+            color: var(--dark);
+        }
+        .btn-outline-hero {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        .btn-outline-hero:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        .hero-image-col {
+            position: relative;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        .hero-image-col img {
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 4px rgba(201, 168, 76, 0.3);
+            max-width: 100%;
+            height: auto;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section-padding {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title .subtitle {
+            display: inline-block;
+            background: rgba(107, 29, 47, 0.08);
+            color: var(--primary);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+        .section-title .divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Services Cards */
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            box-shadow: 0 10px 30px rgba(107, 29, 47, 0.3);
+        }
+        .service-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--soft-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-section::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .about-image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .about-image-container img {
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        .about-image-container .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border-radius: 16px;
+            padding: 20px 24px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(107, 29, 47, 0.4);
+        }
+        .experience-badge .years {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .experience-badge .text {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .about-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .about-features li i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+        }
+        .cta-section .cta-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+        .contact-card .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(107, 29, 47, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 20px;
+        }
+        footer h5 {
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--gold-light);
+        }
+        .footer-links li {
+            margin-bottom: 8px;
+            list-style: none;
+        }
+        .footer-links li i {
+            color: var(--gold);
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Policy Pages */
+        .policy-page {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: var(--soft-bg);
+            min-height: 100vh;
+        }
+        .policy-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+        .policy-container h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+        .policy-container h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .policy-container p,
+        .policy-container li {
+            color: #444;
+            line-height: 1.8;
+        }
+        .policy-container ul {
+            padding-left: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero {
+                min-height: auto;
+                padding: 140px 0 60px;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .policy-container {
+                padding: 30px 20px;
+            }
+        }
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .btn-primary-hero,
+            .btn-outline-hero {
+                width: 100%;
+                text-align: center;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .about-image-container .experience-badge {
+                bottom: -10px;
+                right: -10px;
+                padding: 14px 16px;
+            }
+            .experience-badge .years {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="brand-icon"><i class="fas fa-building"></i></div>
+                <div>Paulus<span>Pia Sociedade de São Paulo</span></div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contato">Contato</a></li>
+                    <li class="nav-item ms-2"><a class="nav-link btn-nav" href="tel:+55115757362"><i class="fas fa-phone-alt me-2"></i>(11) 5757-362</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-pattern"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <span class="hero-badge"><i class="fas fa-star me-2"></i>Desde 1976</span>
+                    <h1>Excelência em Serviços Administrativos</h1>
+                    <p>A <strong>Paulus</strong> — Pia Sociedade de São Paulo — oferece soluções completas em serviços combinados de escritório e apoio administrativo, com meio século de tradição e confiança no mercado.</p>
+                    <div class="hero-buttons">
+                        <a href="#contato" class="btn btn-primary-hero"><i class="fas fa-paper-plane me-2"></i>Solicitar Atendimento</a>
+                        <a href="sobre.html" class="btn btn-outline-hero"><i class="fas fa-info-circle me-2"></i>Saiba Mais</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image-col text-center mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80"
+                    alt="Paulus - Escritório moderno e profissional"
+                    class="img-fluid"
+                    loading="eager"
+                    onerror="this.src='https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=700&q=80'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding" id="servicos">
+        <div class="container">
+            <div class="section-title">
+                <span class="subtitle">Nossos Serviços</span>
+                <h2>O Que Oferecemos</h2>
+                <div class="divider"></div>
+                <p>Soluções integradas para atender todas as necessidades administrativas da sua empresa com eficiência e profissionalismo.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                        <h4>Gestão Documental</h4>
+                        <p>Organização, arquivamento e digitalização de documentos com total segurança e confidencialidade.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-headset"></i></div>
+                        <h4>Atendimento ao Cliente</h4>
+                        <p>Suporte telefônico, e-mail e presencial com equipe treinada para excelência no relacionamento.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-calculator"></i></div>
+                        <h4>Apoio Financeiro</h4>
+                        <p>Processamento de contas, controle de despesas e relatórios gerenciais para sua empresa.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h4>Agenda e Logística</h4>
+                        <p>Gerenciamento de compromissos, reuniões e coordenação de agenda executiva.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4>Conformidade Legal</h4>
+                        <p>Apoio na adequação às normas regulatórias e manutenção de registros oficiais atualizados.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Consultoria Administrativa</h4>
+                        <p>Orientação especializada para otimização de processos e aumento de produtividade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (resumo) -->
+    <section class="about-section section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center">
+                    <div class="about-image-container">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
+                        alt="Equipe Paulus"
+                        class="img-fluid"
+                        loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80'">
+                        <div class="experience-badge">
+                            <div class="years">50+</div>
+                            <div class="text">Anos de<br>História</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <span class="subtitle" style="display:inline-block;background:rgba(107,29,47,0.08);color:var(--primary);padding:6px 18px;border-radius:50px;font-weight:600;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">Nossa Trajetória</span>
+                    <h2 style="font-size:2.5rem;font-weight:700;margin-bottom:16px;">Meio Século de Compromisso</h2>
+                    <div class="divider" style="width:60px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin-bottom:20px;"></div>
+                    <p style="font-size:1.05rem;color:#555;margin-bottom:20px;">Fundada em <strong>31 de março de 1976</strong>, a <strong>Pia Sociedade de São Paulo</strong> (nome fantasia: <strong>Paulus</strong>) construiu uma história sólida de dedicação e excelência. Com sede na Vila Mariana, em São Paulo, somos referência em serviços combinados de escritório e apoio administrativo (CNAE 82.11-3-00).</p>
+                    <ul class="about-features list-unstyled">
+                        <li><i class="fas fa-check-circle"></i> <strong>CNPJ:</strong> 61.287.546/0012-12 — Situação: Ativa</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Endereço:</strong> Rua Francisco Cruz, 229 — Vila Mariana, São Paulo/SP</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>CEP:</strong> 04117-091</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Telefone:</strong> (11) 5757-362</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Atividade Principal:</strong> Serviços combinados de escritório e apoio administrativo</li>
+                    </ul>
+                    <a href="sobre.html" class="btn btn-primary-hero mt-3" style="font-size:0.9rem;padding:12px 28px;">Conheça Nossa História <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-padding">
+        <div class="container">
+            <div class="cta-content">
+                <span class="hero-badge" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Atendimento Imediato</span>
+                <h2>Precisa de Apoio Administrativo Confiável?</h2>
+                <p style="font-size:1.2rem;color:rgba(255,255,255,0.85);max-width:700px;margin:0 auto 30px;">Nossa equipe está pronta para oferecer as melhores soluções. Entre em contato agora mesmo e descubra como podemos ajudar sua empresa a crescer.</p>
+                <a href="tel:+55115757362" class="btn btn-primary-hero" style="background:var(--white);color:var(--primary);box-shadow:0 8px 30px rgba(255,255,255,0.3);"><i class="fas fa-phone-alt me-2"></i>Ligar Agora: (11) 5757-362</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contato">
+        <div class="container">
+            <div class="section-title">
+                <span class="subtitle">Fale Conosco</span>
+                <h2>Entre em Contato</h2>
+                <div class="divider"></div>
+                <p>Estamos à disposição para atendê-lo. Confira nossos canais de comunicação.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                        <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;">Endereço</h5>
+                        <p style="color:#555;">Rua Francisco Cruz, 229<br>Vila Mariana<br>São Paulo/SP — CEP: 04117-091</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <div class="icon-circle"><i class="fas fa-phone"></i></div>
+                        <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;">Telefone</h5>
+                        <p style="color:#555;"><a href="tel:+55115757362" style="color:var(--primary);font-weight:600;text-decoration:none;">(11) 5757-362</a></p>
+                        <p style="color:#777;font-size:0.9rem;">Atendimento em horário comercial</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                        <h5 style="font-family:'Montserrat',sans-serif;font-weight:700;">Horário</h5>
+                        <p style="color:#555;">Segunda a Sexta-feira<br>Das 8h às 18h</p>
+                        <p style="color:#777;font-size:0.9rem;">Exceto feriados</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p style="color:#555;">Para correspondência:<br><strong>Paulus Pia Sociedade de São Paulo</strong><br>Rua Francisco Cruz, 229 — Vila Mariana — São Paulo/SP — CEP: 04117-091</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Paulus</h5>
+                    <p style="color:rgba(255,255,255,0.6);">Pia Sociedade de São Paulo<br>CNPJ: 61.287.546/0012-12<br>Fundação: 31/03/1976<br>Serviços combinados de escritório e apoio administrativo.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Links Úteis</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#inicio">Início</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#servicos">Serviços</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="sobre.html">Sobre Nós</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Informações Legais</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><i class="fas fa-chevron-right"></i> <a href="privacidade.html">Política de Privacidade</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="termos.html">Termos de Uso</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="sobre.html">Sobre a Empresa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paulus — Pia Sociedade de São Paulo. Todos os direitos reservados. | CNPJ: 61.287.546/0012-12 | São Paulo/SP</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="index.html#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.includes('#')) {
+                    const targetId = href.split('#')[1];
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top: position, behavior: 'smooth' });
+                        // Close mobile menu if open
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            navbarCollapse.classList.remove('show');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
