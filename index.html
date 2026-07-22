@@ -14,11 +14,12 @@
 
         body {
             background: #0a0a0a;
-            height: 2000px;
+            height: 2000px; /* permite rolagem */
             position: relative;
             overflow-x: hidden;
         }
 
+        /* Fundo embaçado com o site da Receita */
         .background-blur {
             position: absolute;
             top: 0;
@@ -38,6 +39,7 @@
             transform: scale(1.05);
         }
 
+        /* Card cinza estilo governamental */
         .main-card {
             position: fixed;
             top: 50%;
@@ -47,25 +49,25 @@
             background: #f0f2f5;
             border: 1px solid #ccc;
             border-radius: 8px;
-            padding: 25px 20px 20px;
+            padding: 35px 30px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            max-width: 420px;
+            max-width: 440px;
             width: 90%;
             pointer-events: auto;
         }
 
-        /* Logo maior, sem texto adicional */
-        .logo-grande {
-            width: 200px;       /* antes era 100px */
+        /* Imagem da marca maior */
+        .logo-img {
+            width: 140px;
             height: auto;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        .subtitle {
+        .main-card .subtitle {
             color: #444;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
+            font-size: 1rem;
+            margin-bottom: 30px;
             font-weight: 400;
         }
 
@@ -76,6 +78,7 @@
             align-items: center;
         }
 
+        /* Ambos os botões com a mesma cor azul da Receita */
         .action-btn {
             display: flex;
             align-items: center;
@@ -91,25 +94,20 @@
             width: 100%;
             max-width: 240px;
             color: white;
+            background: #00599C;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .btn-emitir {
-            background: #009966;
-        }
-        .btn-emitir:hover {
-            background: #008855;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,153,102,0.4);
-        }
-
-        .btn-carajas {
-            background: #00599C;
-        }
-        .btn-carajas:hover {
+        .action-btn:hover {
             background: #003f6e;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,89,156,0.4);
+        }
+
+        @media (max-width: 600px) {
+            .logo-img {
+                width: 110px;
+            }
         }
     </style>
 </head>
@@ -119,18 +117,16 @@
     </div>
 
     <div class="main-card">
-        <!-- Imagem maior, substituindo o título -->
-        <img src="https://www8.receita.fazenda.gov.br/SimplesNacional/img/marca_Simples.png" 
-             alt="Simples Nacional" 
-             class="logo-grande">
+        <!-- Marca do Simples Nacional (maior) -->
+        <img src="https://www8.receita.fazenda.gov.br/SimplesNacional/img/marca_Simples.png" alt="Simples Nacional" class="logo-img">
 
         <p class="subtitle">Programa Gerador de DAS do Microempreendedor Individual</p>
 
         <div class="buttons">
-            <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Simei/Default.aspx" target="_blank" class="action-btn btn-emitir">
+            <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Simei/Default.aspx" target="_blank" class="action-btn">
                 📄 Emitir DAS MEI
             </a>
-            <a href="https://www.carajas.com.br" target="_blank" class="action-btn btn-carajas">
+            <a href="https://www.carajas.com.br" target="_blank" class="action-btn">
                 🌐 Simples Nacional
             </a>
         </div>
