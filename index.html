@@ -14,19 +14,19 @@
 
         body {
             background: #0a0a0a;
-            color: #e0e0e0;
-            height: 2000px; /* Altura para rolagem */
+            color: #333;
+            height: 2000px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Fundo embaçado ocupa toda a altura da página */
+        /* Fundo embaçado não interativo */
         .background-blur {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%; /* 100% do body (2000px) */
+            height: 100%;
             overflow: hidden;
             z-index: 0;
             pointer-events: none;
@@ -41,50 +41,71 @@
             object-fit: cover;
         }
 
-        /* Card fixo no centro, verde translúcido */
+        /* Card inspirado no layout do site da Receita */
         .main-card {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            background: rgba(0, 100, 50, 0.75);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 180, 90, 0.3);
-            border-radius: 12px;
-            padding: 50px 40px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 0 0 30px 0;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 460px;
             width: 90%;
             pointer-events: auto;
+            overflow: hidden;
+            border: 1px solid #ddd;
         }
 
-        .main-card h1 {
-            font-size: 2.8em;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: #f0f0f0;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        /* Cabeçalho azul estilo Receita */
+        .card-header {
+            background: #00599C;
+            padding: 20px;
+            margin-bottom: 25px;
         }
 
-        .main-card .subtitle {
-            color: #e0e0e0;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+        .card-header .logo {
+            margin-bottom: 5px;
         }
 
-        .main-card .info-source {
-            font-size: 0.9em;
-            color: #FFE066;
-            margin-bottom: 40px;
+        .card-header .logo svg {
+            width: 60px;
+            height: auto;
+        }
+
+        .card-header h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin: 5px 0 0;
+        }
+
+        .card-body {
+            padding: 0 30px;
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 1em;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .info-source {
+            font-size: 0.85em;
+            color: #777;
+            margin-bottom: 25px;
+            font-style: italic;
         }
 
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
             align-items: center;
         }
 
@@ -92,72 +113,97 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 30px;
-            border-radius: 8px;
-            font-size: 1.1em;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1em;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            border: none;
             width: 100%;
-            max-width: 280px;
-            backdrop-filter: blur(5px);
+            max-width: 250px;
+            letter-spacing: 0.5px;
         }
 
         .btn-emitir {
-            background: rgba(0, 153, 102, 0.9);
+            background: #009966;
             color: white;
-            border-color: #00b377;
+            border: 1px solid #008855;
         }
 
         .btn-emitir:hover {
-            background: #00b377;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 153, 102, 0.4);
+            background: #008855;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 153, 102, 0.3);
         }
 
         .btn-carajas {
-            background: rgba(0, 89, 156, 0.9);
-            color: white;
-            border-color: #0077cc;
+            background: #f0f0f0;
+            color: #00599C;
+            border: 1px solid #ccc;
         }
 
         .btn-carajas:hover {
-            background: #0077cc;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 89, 156, 0.4);
+            background: #e5e5e5;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Rodapé discreto no estilo governamental */
+        .card-footer {
+            margin-top: 20px;
+            font-size: 0.75em;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
 
         @media (max-width: 600px) {
-            .main-card h1 {
-                font-size: 2em;
+            .card-header h1 {
+                font-size: 1.5em;
             }
-            .main-card {
-                padding: 30px 25px;
+            .card-body {
+                padding: 0 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Fundo embaçado ocupa 100% da altura do body -->
     <div class="background-blur">
         <iframe src="https://www8.receita.fazenda.gov.br/SimplesNacional/"></iframe>
     </div>
 
-    <!-- Card fixo com botões -->
     <div class="main-card">
-        <h1>SIMPLES NACIONAL</h1>
-        <p class="subtitle">Regime Tributário Diferenciado para Micro e Pequenas Empresas</p>
-        <p class="info-source">Informações oficiais baseadas na Receita Federal</p>
+        <!-- Cabeçalho azul típico do site da Receita -->
+        <div class="card-header">
+            <div class="logo">
+                <!-- Estrela do Simples Nacional (oficial) -->
+                <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 8 L68 35 L95 35 L73 50 L82 78 L60 63 L38 78 L47 50 L25 35 L52 35 Z" fill="#FFD700" opacity="0.95"/>
+                    <rect x="20" y="52" width="80" height="3" rx="1.5" fill="#ffffff" opacity="0.8"/>
+                    <rect x="30" y="57" width="60" height="3" rx="1.5" fill="#ffffff" opacity="0.5"/>
+                </svg>
+            </div>
+            <h1>SIMPLES NACIONAL</h1>
+        </div>
 
-        <div class="buttons">
-            <a href="https://www.mundodoscolecionaveis.com.br/" target="_blank" class="action-btn btn-emitir">
-                📄 Emitir DAS MEI
-            </a>
-            <a href="https://www.carajas.com.br" target="_blank" class="action-btn btn-carajas">
-                🌐 Simples Nacional
-            </a>
+        <div class="card-body">
+            <p class="subtitle">Regime Tributário Diferenciado para ME e EPP</p>
+            <p class="info-source">Informações oficiais da Receita Federal</p>
+
+            <div class="buttons">
+                <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Simei/Default.aspx" target="_blank" class="action-btn btn-emitir">
+                    📄 Emitir DAS MEI
+                </a>
+                <a href="https://www.carajas.com.br" target="_blank" class="action-btn btn-carajas">
+                    🌐 Simples Nacional
+                </a>
+            </div>
+
+            <div class="card-footer">
+                Ministério da Fazenda • RFB
+            </div>
         </div>
     </div>
 </body>
