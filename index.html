@@ -14,12 +14,11 @@
 
         body {
             background: #0a0a0a;
-            height: 2000px; /* permite rolagem */
+            height: 2000px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Fundo embaçado com o site da Receita */
         .background-blur {
             position: absolute;
             top: 0;
@@ -39,17 +38,16 @@
             transform: scale(1.05);
         }
 
-        /* Card principal com fundo cinza (estilo Receita) */
         .main-card {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            background: #f0f2f5; /* cinza claro governamental */
+            background: #f0f2f5;
             border: 1px solid #ccc;
             border-radius: 8px;
-            padding: 30px 25px;
+            padding: 25px 20px 20px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             max-width: 420px;
@@ -57,22 +55,14 @@
             pointer-events: auto;
         }
 
-        /* Imagem da marca do Simples Nacional */
-        .logo-img {
-            width: 100px;
+        /* Logo maior, sem texto adicional */
+        .logo-grande {
+            width: 200px;       /* antes era 100px */
             height: auto;
             margin-bottom: 15px;
         }
 
-        .main-card h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: #00599C; /* azul da Receita */
-            margin-bottom: 8px;
-        }
-
-        .main-card .subtitle {
+        .subtitle {
             color: #444;
             font-size: 0.95rem;
             margin-bottom: 25px;
@@ -86,7 +76,6 @@
             align-items: center;
         }
 
-        /* Estilo PGMEI: botões azul e verde */
         .action-btn {
             display: flex;
             align-items: center;
@@ -122,15 +111,6 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,89,156,0.4);
         }
-
-        @media (max-width: 600px) {
-            .main-card h1 {
-                font-size: 1.5rem;
-            }
-            .logo-img {
-                width: 80px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -139,10 +119,11 @@
     </div>
 
     <div class="main-card">
-        <!-- Marca oficial do Simples Nacional -->
-        <img src="https://www8.receita.fazenda.gov.br/SimplesNacional/img/marca_Simples.png" alt="Simples Nacional" class="logo-img">
+        <!-- Imagem maior, substituindo o título -->
+        <img src="https://www8.receita.fazenda.gov.br/SimplesNacional/img/marca_Simples.png" 
+             alt="Simples Nacional" 
+             class="logo-grande">
 
-        <h1>SIMPLES NACIONAL</h1>
         <p class="subtitle">Programa Gerador de DAS do Microempreendedor Individual</p>
 
         <div class="buttons">
