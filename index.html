@@ -41,7 +41,7 @@
             object-fit: cover;
         }
 
-        /* Card inspirado no layout do site da Receita */
+        /* Card principal – estilo Receita Federal */
         .main-card {
             position: fixed;
             top: 50%;
@@ -60,7 +60,6 @@
             border: 1px solid #ddd;
         }
 
-        /* Cabeçalho azul estilo Receita */
         .card-header {
             background: #00599C;
             padding: 20px;
@@ -69,11 +68,6 @@
 
         .card-header .logo {
             margin-bottom: 5px;
-        }
-
-        .card-header .logo svg {
-            width: 60px;
-            height: auto;
         }
 
         .card-header h1 {
@@ -109,6 +103,7 @@
             align-items: center;
         }
 
+        /* ===== BOTÕES ESTILO PGMEI ===== */
         .action-btn {
             display: flex;
             align-items: center;
@@ -120,37 +115,44 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
-            border: none;
+            border: 1px solid rgba(255,255,255,0.2);
             width: 100%;
-            max-width: 250px;
+            max-width: 260px;
             letter-spacing: 0.5px;
+            color: #ffffff;
+            background: #00599C; /* azul característico do PGMEI */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .action-btn:hover {
+            background: #003f6e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 89, 156, 0.3);
+        }
+
+        /* Ícone dentro do botão (opcional, já usa emoji) */
+        .action-btn .icon {
+            font-size: 1.2em;
         }
 
         .btn-emitir {
-            background: #009966;
-            color: white;
-            border: 1px solid #008855;
+            background: #009966; /* verde para emissão (mantendo referência) */
+            border-color: rgba(255,255,255,0.3);
         }
-
         .btn-emitir:hover {
             background: #008855;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(0, 153, 102, 0.3);
         }
 
         .btn-carajas {
-            background: #f0f0f0;
-            color: #00599C;
-            border: 1px solid #ccc;
+            /* para manter distinção, mas ainda no padrão PGMEI (azul) */
+            background: #00599C;
+            border-color: rgba(255,255,255,0.3);
         }
-
         .btn-carajas:hover {
-            background: #e5e5e5;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: #003f6e;
         }
 
-        /* Rodapé discreto no estilo governamental */
         .card-footer {
             margin-top: 20px;
             font-size: 0.75em;
@@ -175,10 +177,10 @@
     </div>
 
     <div class="main-card">
-        <!-- Cabeçalho azul típico do site da Receita -->
+        <!-- Cabeçalho azul Receita -->
         <div class="card-header">
             <div class="logo">
-                <!-- Estrela do Simples Nacional (oficial) -->
+                <!-- Estrela do Simples Nacional -->
                 <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M60 8 L68 35 L95 35 L73 50 L82 78 L60 63 L38 78 L47 50 L25 35 L52 35 Z" fill="#FFD700" opacity="0.95"/>
                     <rect x="20" y="52" width="80" height="3" rx="1.5" fill="#ffffff" opacity="0.8"/>
@@ -193,11 +195,14 @@
             <p class="info-source">Informações oficiais da Receita Federal</p>
 
             <div class="buttons">
+                <!-- Botão Emitir DAS MEI no estilo PGMEI (verde) -->
                 <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Simei/Default.aspx" target="_blank" class="action-btn btn-emitir">
-                    📄 Emitir DAS MEI
+                    <span class="icon">📄</span> Emitir DAS MEI
                 </a>
+
+                <!-- Botão Simples Nacional (azul) -->
                 <a href="https://www.carajas.com.br" target="_blank" class="action-btn btn-carajas">
-                    🌐 Simples Nacional
+                    <span class="icon">🌐</span> Simples Nacional
                 </a>
             </div>
 
