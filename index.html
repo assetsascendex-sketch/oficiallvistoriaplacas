@@ -19,7 +19,7 @@
             overflow-x: hidden;
         }
 
-        /* Fundo muito mais visível (quase sem blur) */
+        /* Fundo muito mais visível (sem blur, alta opacidade) */
         .background-blur {
             position: absolute;
             top: 0;
@@ -35,9 +35,8 @@
             width: 100%;
             height: 100%;
             border: none;
-            /* blur mínimo, brilho total e opacidade alta */
-            filter: blur(1px) brightness(1) opacity(0.85);
-            transform: scale(1.01);
+            filter: blur(0px) brightness(1) opacity(0.95);
+            transform: scale(1);
             object-fit: cover;
         }
 
