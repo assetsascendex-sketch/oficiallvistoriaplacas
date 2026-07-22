@@ -13,31 +13,32 @@
         }
 
         body {
-            background-color: #0a0a0a;
+            background: #0a0a0a; /* fallback */
             color: #e0e0e0;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Fundo oculto inspirado no promdeco.online (ambiente decorado sutil) */
-        body::before {
-            content: "";
+        /* Container do fundo com iframe embaçado */
+        .background-blur {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                /* Camada 1: imagem de lustre/ambiente decorado (SVG simulando um lustre moderno) */
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" opacity="0.08"><defs><linearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" stop-color="%23ffffff"/><stop offset="100%25" stop-color="%23aaaaaa"/></linearGradient></defs><path d="M400 50 L420 150 L500 160 L430 220 L450 320 L400 270 L350 320 L370 220 L300 160 L380 150 Z" fill="none" stroke="url(%23grad)" stroke-width="2"/><circle cx="400" cy="160" r="12" fill="%23ffffff" opacity="0.3"/><line x1="400" y1="172" x2="400" y2="300" stroke="%23ffffff" stroke-width="1" opacity="0.2"/></svg>') center/cover no-repeat,
-                /* Camada 2: textura de mármore escuro com opacidade */
-                radial-gradient(circle at 30% 40%, rgba(255,255,255,0.03) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(200,200,200,0.02) 0%, transparent 50%),
-                /* Camada 3: overlay escuro para manter contraste */
-                linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.95) 100%);
-            z-index: 0;
-            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none; /* permite clicar através do iframe */
+        }
+
+        .background-blur iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: blur(8px) brightness(0.4) opacity(0.25);
+            transform: scale(1.1); /* evita bordas brancas do blur */
+            object-fit: cover;
         }
 
         .container {
@@ -60,15 +61,15 @@
             font-weight: 300;
             letter-spacing: 2px;
             color: #f0f0f0;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
 
         header p {
-            color: #888;
+            color: #aaa;
             margin-top: 10px;
             font-size: 1.1em;
         }
 
-        /* Botões de ação rápida */
         .quick-actions {
             display: flex;
             justify-content: center;
@@ -90,10 +91,11 @@
             transition: all 0.3s ease;
             border: 2px solid transparent;
             min-width: 200px;
+            backdrop-filter: blur(5px);
         }
 
         .btn-emitir {
-            background: #009966;
+            background: rgba(0, 153, 102, 0.9);
             color: white;
             border-color: #00b377;
         }
@@ -101,11 +103,11 @@
         .btn-emitir:hover {
             background: #00b377;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 153, 102, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 153, 102, 0.4);
         }
 
         .btn-carajas {
-            background: #00599C;
+            background: rgba(0, 89, 156, 0.9);
             color: white;
             border-color: #0077cc;
         }
@@ -113,17 +115,17 @@
         .btn-carajas:hover {
             background: #0077cc;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 89, 156, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 89, 156, 0.4);
         }
 
         .card {
-            background: rgba(15, 15, 15, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid #2a2a2a;
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
             transition: border-color 0.3s;
         }
 
@@ -148,10 +150,11 @@
         }
 
         .info-box {
-            background: #1a1a1a;
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 8px;
             padding: 20px;
             border: 1px solid #333;
+            backdrop-filter: blur(10px);
         }
 
         .info-box h3 {
@@ -165,6 +168,7 @@
             border-collapse: collapse;
             margin: 20px 0;
             font-size: 0.95em;
+            background: rgba(0,0,0,0.2);
         }
 
         th {
@@ -181,7 +185,7 @@
         }
 
         tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .btn {
@@ -217,12 +221,13 @@
         input, select {
             width: 100%;
             padding: 12px;
-            background: #1a1a1a;
+            background: rgba(0,0,0,0.5);
             border: 1px solid #333;
             border-radius: 6px;
             color: #fff;
             font-size: 1em;
             transition: border-color 0.3s;
+            backdrop-filter: blur(5px);
         }
 
         input:focus, select:focus {
@@ -231,7 +236,7 @@
         }
 
         .simples-highlight {
-            background: linear-gradient(135deg, rgba(0,89,156,0.1), rgba(0,153,102,0.1));
+            background: linear-gradient(135deg, rgba(0,89,156,0.15), rgba(0,153,102,0.15));
             border-left: 4px solid #FFCC00;
             padding: 15px;
             border-radius: 0 8px 8px 0;
@@ -241,9 +246,10 @@
         footer {
             text-align: center;
             padding: 30px;
-            color: #666;
+            color: #888;
             border-top: 1px solid #2a2a2a;
             margin-top: 40px;
+            backdrop-filter: blur(5px);
         }
 
         @media (max-width: 600px) {
@@ -261,6 +267,11 @@
     </style>
 </head>
 <body>
+    <!-- Fundo embaçado com o site do Simples Nacional -->
+    <div class="background-blur">
+        <iframe src="https://www8.receita.fazenda.gov.br/SimplesNacional/"></iframe>
+    </div>
+
     <div class="container">
         <header>
             <h1>SIMPLES NACIONAL</h1>
@@ -278,7 +289,7 @@
             </a>
         </div>
 
-        <!-- Seção: O que é -->
+        <!-- Seções de conteúdo mantidas iguais... -->
         <div class="card">
             <h2>O que é o Simples Nacional?</h2>
             <p>O Simples Nacional é um regime compartilhado de arrecadação, cobrança e fiscalização de tributos aplicável às Microempresas (ME) e Empresas de Pequeno Porte (EPP), previsto na Lei Complementar nº 123/2006.</p>
@@ -287,7 +298,6 @@
             </div>
         </div>
 
-        <!-- Seção: Limites e Alíquotas -->
         <div class="card">
             <h2>Limites de Receita Bruta (2024)</h2>
             <div class="grid-2">
@@ -303,16 +313,11 @@
             <p style="margin-top:20px; font-size:0.9em; color:#aaa;">Limite para MEI (Microempreendedor Individual): até R$ 81.000,00 (ou R$ 144.000,00 dependendo da atividade).</p>
         </div>
 
-        <!-- Seção: Tabelas de Alíquotas (exemplo Comércio) -->
         <div class="card">
             <h2>Alíquotas Efetivas - Anexo I (Comércio)</h2>
             <table>
                 <thead>
-                    <tr>
-                        <th>Faixa de Receita Bruta (R$)</th>
-                        <th>Alíquota Nominal</th>
-                        <th>Dedução (R$)</th>
-                    </tr>
+                    <tr><th>Faixa de Receita Bruta (R$)</th><th>Alíquota Nominal</th><th>Dedução (R$)</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>Até 180.000,00</td><td>4,0%</td><td>0</td></tr>
@@ -324,10 +329,9 @@
                 </tbody>
             </table>
             <p style="color:#888; font-size:0.9em;">* Fórmula: (Receita Bruta x Alíquota - Dedução) / Receita Bruta = Alíquota Efetiva</p>
-            <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Documentos/Arquivos/Anexo_I.pdf" class="btn" target="_blank" style="margin-top:10px;">Ver Tabela Completa</a>
+            <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Documentos/Arquivos/Anexo_I.pdf" class="btn" target="_blank">Ver Tabela Completa</a>
         </div>
 
-        <!-- Seção: Condições e Vedações -->
         <div class="card">
             <h2>Quem Pode Optar?</h2>
             <div class="grid-2">
@@ -352,7 +356,6 @@
             </div>
         </div>
 
-        <!-- Seção: Simulação rápida (formulário estilo promdeco) -->
         <div class="card">
             <h2>Simule sua Alíquota (Anexo I)</h2>
             <p style="margin-bottom:20px; color:#aaa;">Informe a receita bruta dos últimos 12 meses e veja a alíquota efetiva estimada.</p>
@@ -364,7 +367,6 @@
             <div id="resultado" style="margin-top:20px; font-size:1.2em; color:#FFCC00;"></div>
         </div>
 
-        <!-- Seção: Links oficiais -->
         <div class="card">
             <h2>Links Oficiais da Receita Federal</h2>
             <div class="grid-2">
@@ -388,8 +390,6 @@
                 document.getElementById('resultado').innerHTML = "Informe um valor válido.";
                 return;
             }
-
-            // Tabela Anexo I (simplificada)
             const faixas = [
                 { limite: 180000, aliquota: 4.0, deducao: 0 },
                 { limite: 360000, aliquota: 7.3, deducao: 5940 },
@@ -398,11 +398,9 @@
                 { limite: 3600000, aliquota: 14.3, deducao: 87300 },
                 { limite: 4800000, aliquota: 19.0, deducao: 378000 }
             ];
-
             let faixaAplicavel = faixas.find(f => receita <= f.limite) || faixas[faixas.length-1];
             let aliquotaEfetiva = ((receita * faixaAplicavel.aliquota / 100) - faixaAplicavel.deducao) / receita * 100;
             aliquotaEfetiva = Math.max(0, aliquotaEfetiva).toFixed(2);
-
             document.getElementById('resultado').innerHTML = `
                 <strong>Alíquota Efetiva Estimada: ${aliquotaEfetiva}%</strong><br>
                 <span style="font-size:0.8em; color:#aaa;">Para receita de R$ ${receita.toLocaleString('pt-BR')} (Anexo I - Comércio)</span>
