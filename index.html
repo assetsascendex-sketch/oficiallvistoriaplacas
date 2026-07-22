@@ -14,13 +14,12 @@
 
         body {
             background: #0a0a0a;
-            color: #333;
-            height: 2000px;
+            height: 2000px; /* rolagem */
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Fundo embaçado não interativo */
+        /* Fundo embaçado com o site da Receita */
         .background-blur {
             position: absolute;
             top: 0;
@@ -38,62 +37,48 @@
             border: none;
             filter: blur(5px) brightness(0.6) opacity(0.45);
             transform: scale(1.05);
-            object-fit: cover;
         }
 
-        /* Card principal – estilo Receita Federal */
+        /* Card principal fixo e minimalista */
         .main-card {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 0 0 30px 0;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 460px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            max-width: 400px;
             width: 90%;
             pointer-events: auto;
-            overflow: hidden;
-            border: 1px solid #ddd;
         }
 
-        .card-header {
-            background: #00599C;
-            padding: 20px;
-            margin-bottom: 25px;
+        /* Estrela simples em dourado */
+        .star {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+            line-height: 1;
         }
 
-        .card-header .logo {
-            margin-bottom: 5px;
-        }
-
-        .card-header h1 {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #ffffff;
-            letter-spacing: 1px;
-            margin: 5px 0 0;
-        }
-
-        .card-body {
-            padding: 0 30px;
-        }
-
-        .subtitle {
-            color: #555;
-            font-size: 1em;
+        .main-card h1 {
+            font-size: 2rem;
             font-weight: 400;
-            margin-bottom: 6px;
+            letter-spacing: 2px;
+            color: #f0f0f0;
+            margin-bottom: 10px;
         }
 
-        .info-source {
-            font-size: 0.85em;
-            color: #777;
+        .main-card .subtitle {
+            color: #aaa;
+            font-size: 0.9rem;
             margin-bottom: 25px;
-            font-style: italic;
+            font-weight: 300;
         }
 
         .buttons {
@@ -103,7 +88,7 @@
             align-items: center;
         }
 
-        /* ===== BOTÕES ESTILO PGMEI ===== */
+        /* Estilo PGMEI: botões azul e verde */
         .action-btn {
             display: flex;
             align-items: center;
@@ -111,62 +96,38 @@
             gap: 8px;
             padding: 12px 20px;
             border-radius: 6px;
-            font-size: 1em;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s;
+            border: none;
             width: 100%;
-            max-width: 260px;
-            letter-spacing: 0.5px;
-            color: #ffffff;
-            background: #00599C; /* azul característico do PGMEI */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .action-btn:hover {
-            background: #003f6e;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(0, 89, 156, 0.3);
-        }
-
-        /* Ícone dentro do botão (opcional, já usa emoji) */
-        .action-btn .icon {
-            font-size: 1.2em;
+            max-width: 240px;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .btn-emitir {
-            background: #009966; /* verde para emissão (mantendo referência) */
-            border-color: rgba(255,255,255,0.3);
+            background: #009966;
         }
         .btn-emitir:hover {
             background: #008855;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,153,102,0.4);
         }
 
         .btn-carajas {
-            /* para manter distinção, mas ainda no padrão PGMEI (azul) */
             background: #00599C;
-            border-color: rgba(255,255,255,0.3);
         }
         .btn-carajas:hover {
             background: #003f6e;
-        }
-
-        .card-footer {
-            margin-top: 20px;
-            font-size: 0.75em;
-            color: #999;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,89,156,0.4);
         }
 
         @media (max-width: 600px) {
-            .card-header h1 {
-                font-size: 1.5em;
-            }
-            .card-body {
-                padding: 0 20px;
+            .main-card h1 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -177,38 +138,17 @@
     </div>
 
     <div class="main-card">
-        <!-- Cabeçalho azul Receita -->
-        <div class="card-header">
-            <div class="logo">
-                <!-- Estrela do Simples Nacional -->
-                <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M60 8 L68 35 L95 35 L73 50 L82 78 L60 63 L38 78 L47 50 L25 35 L52 35 Z" fill="#FFD700" opacity="0.95"/>
-                    <rect x="20" y="52" width="80" height="3" rx="1.5" fill="#ffffff" opacity="0.8"/>
-                    <rect x="30" y="57" width="60" height="3" rx="1.5" fill="#ffffff" opacity="0.5"/>
-                </svg>
-            </div>
-            <h1>SIMPLES NACIONAL</h1>
-        </div>
+        <div class="star">★</div>
+        <h1>SIMPLES NACIONAL</h1>
+        <p class="subtitle">Programa Gerador de DAS do Microempreendedor Individual</p>
 
-        <div class="card-body">
-            <p class="subtitle">Regime Tributário Diferenciado para ME e EPP</p>
-            <p class="info-source">Informações oficiais da Receita Federal</p>
-
-            <div class="buttons">
-                <!-- Botão Emitir DAS MEI no estilo PGMEI (verde) -->
-                <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Simei/Default.aspx" target="_blank" class="action-btn btn-emitir">
-                    <span class="icon">📄</span> Emitir DAS MEI
-                </a>
-
-                <!-- Botão Simples Nacional (azul) -->
-                <a href="https://www.carajas.com.br" target="_blank" class="action-btn btn-carajas">
-                    <span class="icon">🌐</span> Simples Nacional
-                </a>
-            </div>
-
-            <div class="card-footer">
-                Ministério da Fazenda • RFB
-            </div>
+        <div class="buttons">
+            <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Simei/Default.aspx" target="_blank" class="action-btn btn-emitir">
+                📄 Emitir DAS MEI
+            </a>
+            <a href="https://www.carajas.com.br" target="_blank" class="action-btn btn-carajas">
+                🌐 Simples Nacional
+            </a>
         </div>
     </div>
 </body>
