@@ -20,26 +20,26 @@
             overflow-x: hidden;
         }
 
-        /* Fundo embaçado (rola junto com a página) */
+        /* Fundo embaçado (não interativo) */
         .background-blur {
             position: relative;
             width: 100%;
-            height: 100vh; /* Ocupa a altura da tela */
+            height: 100vh;
             overflow: hidden;
             z-index: 0;
+            pointer-events: none; /* Impede qualquer clique no fundo */
         }
 
         .background-blur iframe {
             width: 100%;
             height: 100%;
             border: none;
-            /* Fundo mais visível */
             filter: blur(5px) brightness(0.6) opacity(0.45);
             transform: scale(1.05);
             object-fit: cover;
         }
 
-        /* Card fixo no centro, agora verde */
+        /* Card fixo no centro, verde translúcido */
         .main-card {
             position: fixed;
             top: 50%;
@@ -55,6 +55,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
             max-width: 500px;
             width: 90%;
+            pointer-events: auto; /* Permite interação nos botões */
         }
 
         .main-card h1 {
@@ -137,12 +138,12 @@
     </style>
 </head>
 <body>
-    <!-- Fundo embaçado que rola com a página -->
+    <!-- Fundo embaçado não interativo -->
     <div class="background-blur">
         <iframe src="https://www8.receita.fazenda.gov.br/SimplesNacional/"></iframe>
     </div>
 
-    <!-- Card fixo com botões (agora verde) -->
+    <!-- Card fixo com botões clicáveis -->
     <div class="main-card">
         <h1>SIMPLES NACIONAL</h1>
         <p class="subtitle">Regime Tributário Diferenciado para Micro e Pequenas Empresas</p>
