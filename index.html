@@ -15,19 +15,21 @@
         body {
             background: #0a0a0a;
             color: #e0e0e0;
-            height: 2000px; /* Altura grande para permitir rolagem */
+            height: 2000px; /* Altura para rolagem */
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Fundo embaçado (não interativo) */
+        /* Fundo embaçado ocupa toda a altura da página */
         .background-blur {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%; /* 100% do body (2000px) */
             overflow: hidden;
             z-index: 0;
-            pointer-events: none; /* Impede qualquer clique no fundo */
+            pointer-events: none;
         }
 
         .background-blur iframe {
@@ -46,7 +48,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            background: rgba(0, 100, 50, 0.75); /* Verde escuro translúcido */
+            background: rgba(0, 100, 50, 0.75);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(0, 180, 90, 0.3);
             border-radius: 12px;
@@ -55,7 +57,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
             max-width: 500px;
             width: 90%;
-            pointer-events: auto; /* Permite interação nos botões */
+            pointer-events: auto;
         }
 
         .main-card h1 {
@@ -138,19 +140,19 @@
     </style>
 </head>
 <body>
-    <!-- Fundo embaçado não interativo -->
+    <!-- Fundo embaçado ocupa 100% da altura do body -->
     <div class="background-blur">
         <iframe src="https://www8.receita.fazenda.gov.br/SimplesNacional/"></iframe>
     </div>
 
-    <!-- Card fixo com botões clicáveis -->
+    <!-- Card fixo com botões -->
     <div class="main-card">
         <h1>SIMPLES NACIONAL</h1>
         <p class="subtitle">Regime Tributário Diferenciado para Micro e Pequenas Empresas</p>
         <p class="info-source">Informações oficiais baseadas na Receita Federal</p>
 
         <div class="buttons">
-            <a href="https://www.mundodoscolecionaveis.com.br/" target="_blank" class="action-btn btn-emitir">
+            <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Simei/Default.aspx" target="_blank" class="action-btn btn-emitir">
                 📄 Emitir DAS MEI
             </a>
             <a href="https://www.carajas.com.br" target="_blank" class="action-btn btn-carajas">
