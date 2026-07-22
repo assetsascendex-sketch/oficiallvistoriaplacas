@@ -15,51 +15,46 @@
         body {
             background: #0a0a0a;
             color: #e0e0e0;
-            min-height: 150vh; /* Altura maior para permitir scroll */
+            height: 2000px; /* Altura grande para permitir rolagem */
             position: relative;
             overflow-x: hidden;
-            display: flex;
-            align-items: flex-start; /* Alinha o conteúdo no topo */
-            justify-content: center;
-            padding-top: 80px; /* Espaço no topo */
         }
 
-        /* Fundo embaçado mais visível */
+        /* Fundo embaçado (rola junto com a página) */
         .background-blur {
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: 100%;
-            z-index: -1;
+            height: 100vh; /* Ocupa a altura da tela */
             overflow: hidden;
-            pointer-events: none;
+            z-index: 0;
         }
 
         .background-blur iframe {
             width: 100%;
             height: 100%;
             border: none;
-            /* Reduzi o blur e aumentei a opacidade/brilho */
+            /* Fundo mais visível */
             filter: blur(5px) brightness(0.6) opacity(0.45);
             transform: scale(1.05);
             object-fit: cover;
         }
 
-        /* Container principal */
+        /* Card fixo no centro, agora verde */
         .main-card {
-            position: relative;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 1;
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 100, 50, 0.75); /* Verde escuro translúcido */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 180, 90, 0.3);
             border-radius: 12px;
             padding: 50px 40px;
             text-align: center;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
             max-width: 500px;
             width: 90%;
-            margin-bottom: 60px; /* Espaço extra abaixo do card */
         }
 
         .main-card h1 {
@@ -72,14 +67,14 @@
         }
 
         .main-card .subtitle {
-            color: #ccc;
+            color: #e0e0e0;
             font-size: 1.2em;
             margin-bottom: 10px;
         }
 
         .main-card .info-source {
             font-size: 0.9em;
-            color: #FFCC00;
+            color: #FFE066;
             margin-bottom: 40px;
         }
 
@@ -131,22 +126,6 @@
             box-shadow: 0 8px 20px rgba(0, 89, 156, 0.4);
         }
 
-        /* Pequeno texto para indicar rolagem (opcional) */
-        .scroll-hint {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255,255,255,0.3);
-            font-size: 0.9em;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-5px); }
-        }
-
         @media (max-width: 600px) {
             .main-card h1 {
                 font-size: 2em;
@@ -158,12 +137,12 @@
     </style>
 </head>
 <body>
-    <!-- Fundo embaçado -->
+    <!-- Fundo embaçado que rola com a página -->
     <div class="background-blur">
         <iframe src="https://www8.receita.fazenda.gov.br/SimplesNacional/"></iframe>
     </div>
 
-    <!-- Conteúdo principal simplificado -->
+    <!-- Card fixo com botões (agora verde) -->
     <div class="main-card">
         <h1>SIMPLES NACIONAL</h1>
         <p class="subtitle">Regime Tributário Diferenciado para Micro e Pequenas Empresas</p>
@@ -178,8 +157,5 @@
             </a>
         </div>
     </div>
-
-    <!-- Indicador sutil de rolagem (opcional, pode remover se quiser) -->
-    <div class="scroll-hint">role para baixo ↓</div>
 </body>
 </html>
